@@ -11,6 +11,9 @@ import { ConfirmOptions, Position } from 'angular2-bootstrap-confirm';
 import { Positioning } from 'angular2-bootstrap-confirm/position';
 import { ConfirmModule } from 'angular2-bootstrap-confirm';
 import { DashboardComponent } from "app/dashboard/dashboard.component";
+import { LoadingComponent } from "app/shared/loading/loading.component";
+import { MarkDirective } from "app/shared/mark/mark.directive";
+import { PaginatorComponent } from "app/shared/paginator/paginator.component";
 
 @NgModule({
   imports: [
@@ -18,14 +21,20 @@ import { DashboardComponent } from "app/dashboard/dashboard.component";
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    ConfirmModule
   ],
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoadingComponent,
+    MarkDirective,
+    PaginatorComponent
   ],
   providers: [
-    HeroService
+    HeroService,
+    ConfirmOptions,
+    { provide: Position, useClass: Positioning }
   ],
   bootstrap: [AppComponent]
 })
